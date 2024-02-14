@@ -68,7 +68,8 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root" }) -- comma-separated entries
+-- run_once({ "urxvtd", "unclutter -root" }) -- comma-separated entries
+run_once({"xfce4-terminal", "picom --daemon"})
 
 -- This function implements the XDG autostart specification
 --[[
@@ -97,7 +98,7 @@ local themes = {
     "vertex"           -- 10
 }
 
-local chosen_theme = themes[5]
+local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "urxvtc"
