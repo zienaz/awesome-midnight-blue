@@ -68,8 +68,8 @@ local function run_once(cmd_arr)
     end
 end
 
--- run_once({ "urxvtd", "unclutter -root" }) -- comma-separated entries
-run_once({"xfce4-terminal", "picom --daemon"})
+run_once({ "urxvtd", "unclutter" }) -- comma-separated entries
+run_once({ "urxvtd", "picom --daemon" })
 
 -- This function implements the XDG autostart specification
 --[[
@@ -101,11 +101,11 @@ local themes = {
 local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "urxvtc"
+local terminal     = "xfce4-terminal"
 local vi_focus     = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev   = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor       = os.getenv("EDITOR") or "nvim"
-local browser      = "librewolf"
+local browser      = "firefox-esr"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -232,7 +232,7 @@ screen.connect_signal("property::geometry", function(s)
         if type(wallpaper) == "function" then
             wallpaper = wallpaper(s)
         end
-        gears.wallpaper.maximized(wallpaper, s, true)
+        gears.wallpaper.maximized(wallpaper, s, false, nil)
     end
 end)
 
@@ -523,8 +523,16 @@ globalkeys = mytable.join(
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
     -- User programs
-    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
-              {description = "run browser", group = "launcher"}),
+    awful.key({ modkey }, "b", function () awful.spawn(browser) end,
+              {description = "browser", group = "launcher"}),
+    awful.key({ modkey }, "c", function () awful.spawn("code") end,
+              {description = "code", group = "launcher"}),
+    awful.key({ modkey }, "e", function () awful.spawn("evince") end,
+              {description = "evince pdf reader", group = "launcher"}),
+    awful.key({ modkey }, "t", function () awful.spawn("thunar") end,
+              {description = "thunar filemanager", group = "launcher"}),
+    awful.key({ modkey }, "d", function () awful.spawn("rofi -show drun -show-icons -sidebar-mode") end,
+              {description = "rofi drun", group = "launcher"}),
 
     -- Default
     --[[ Menubar
