@@ -86,19 +86,12 @@ awful.spawn.with_shell(
 -- {{{ Variable definitions
 
 local themes = {
-    "blackburn",       -- 1
-    "copland",         -- 2
-    "dremora",         -- 3
-    "holo",            -- 4
-    "multicolor",      -- 5
-    "powerarrow",      -- 6
-    "powerarrow-dark", -- 7
-    "rainbow",         -- 8
-    "steamburn",       -- 9
-    "vertex"           -- 10
+    "powerarrow",               -- 1
+    "powerarrow-dark",          -- 2
+    "powerarrow-midnight-blue"  -- 3
 }
 
-local chosen_theme = themes[7]
+local chosen_theme = themes[3]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "xfce4-terminal"
