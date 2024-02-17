@@ -1,5 +1,5 @@
-Awesome WM Copycats
-===================
+ Awesome WM Copycats
+ ===================
 
 -------------------------
 Themes for Awesome WM 4.x
